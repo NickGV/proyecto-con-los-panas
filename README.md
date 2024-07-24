@@ -3,3 +3,5 @@
 
 ## this is the projects we have completed:
 - Rock-paper-scissors
+- Guess-my-number
+- Tic-Tac-Toe
