@@ -33,12 +33,12 @@ class Player:
     def shoot(self):
         if self.lastKey == None:
             return None
-            
+
         if self.lastKey == "UP":
-            return Bullet(self.x, self.y + self.height // 2    , 0, 5)
+            return Bullet(self.x + self.width // 2, self.y - self.height // 2, 0, -5)
         
         if self.lastKey == "DOWN":
-            return Bullet(self.x, self.y + self.height // 2    , 0, -5)
+            return Bullet(self.x + self.width // 2, self.y + self.height, 0, 5)
         
         if self.lastKey == "LEFT":
             return Bullet(self.x - self.width // 2, self.y + self.height // 2, -5, 0)
@@ -50,6 +50,9 @@ class Player:
     def draw(self, screen):
         pygame.draw.rect(
             screen,
-            (0, 0, 0),
+            (255, 0, 125),
             (self.x, self.y, self.width, self.height),
         )
+
+    def get_rect(self):
+        return pygame.Rect(self.x, self.y, self.width, self.height)

@@ -17,7 +17,7 @@ class Bullet:
     def draw(self, screen):
         pygame.draw.rect(
             screen,
-            (255, 0, 0),
+            (255, 125, 125),
             (self.x, self.y, self.width, self.height),
         )
 
