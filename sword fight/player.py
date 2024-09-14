@@ -1,79 +1,55 @@
 import pygame
+from Bullet import Bullet
 
+# Crear un diccionario de controles, que se pasan por parametro a la clase
 
 class Player:
-    def __init__(self, x, y):
+    def __init__(self, x, y, controls):
         self.life = 3
-        # self.attack = attack
         self.width = 50
         self.height = 50
         self.x = x
         self.y = y
         self.lastKey = None
-        self.proyectile = Proyectile(self.x, self.y, self.lastKey)
+        self.controls = controls
+        
 
-    def update(self, screen):
-        self.move()
-        self.draw(screen)
-        self.hit(self.proyectile, screen)
-
-    def move(self):
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_w]:
-            self.lastKey = "w"
+    # TODO: mandar la key que se presiono para moverlo
+    def move(self, keys_pressed):
+        if keys_pressed[self.controls["up"]]:
             self.y -= 5
-        if keys[pygame.K_s]:
-            self.lastKey = "s"
+            self.lastKey = "UP"
+        if keys_pressed[self.controls["down"]]:
             self.y += 5
-        if keys[pygame.K_a]:
-            self.lastKey = "a"
+            self.lastKey = "DOWN"
+        if keys_pressed[self.controls["left"]]:
             self.x -= 5
-        if keys[pygame.K_d]:
-            self.lastKey = "d"
+            self.lastKey = "LEFT"
+        if keys_pressed[self.controls["right"]]:
             self.x += 5
+            self.lastKey = "RIGHT"
+            
+    # Crear la bullet desde la funcion shot, para que se puedan crear varias
+    def shoot(self):
+        if self.lastKey == None:
+            return None
+            
+        if self.lastKey == "UP":
+            return Bullet(self.x, self.y + self.height // 2    , 0, 5)
+        
+        if self.lastKey == "DOWN":
+            return Bullet(self.x, self.y + self.height // 2    , 0, -5)
+        
+        if self.lastKey == "LEFT":
+            return Bullet(self.x - self.width // 2, self.y + self.height // 2, -5, 0)
 
-    def hit(self, hit, screen):
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_SPACE]:
-            hit.draw(screen)
-            hit.move()
-            return
-        if keys[pygame.K_q]:
-            hit.draw(screen)
-            hit.move()
-            return
+        if self.lastKey == "RIGHT":
+            return Bullet(self.x + self.width, self.y + self.height // 2, 5, 0)
+
 
     def draw(self, screen):
         pygame.draw.rect(
             screen,
             (0, 0, 0),
             (self.x, self.y, self.width, self.height),
-        )
-
-
-class Proyectile:
-    def __init__(self, x, y, lastKey):
-        self.damage = 1
-        self.width = 10
-        self.height = 5
-        self.x = x
-        self.y = y
-        self.lastKey = lastKey
-
-    def move(self):
-        if self.lastKey == "w":
-            self.y += 5
-        if self.lastKey == "s":
-            self.y -= 5
-        if self.lastKey == "a":
-            self.x -= 5
-        if self.lastKey == "d":
-            self.x += 5
-
-    def draw(self, screen):
-        print("print")
-        pygame.draw.rect(
-            screen,
-            (0, 0, 0),
-            (self.x, self.y, self.width, self.height)
         )
