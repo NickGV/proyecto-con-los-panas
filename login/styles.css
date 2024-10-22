@@ -1,0 +1,41 @@
+.login-container {
+  background-color: rgb(71, 70, 69);
+  padding: 10px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+form {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+input {
+  text-align: center;
+  color: black;
+  margin: auto;
+}
+
+ h2 {
+text-align: center;
+}
+
+body {
+display: flex;
+justify-content: center;
+align-content: center;
+height: 100vh;
+
+background-color: rgb(26, 24, 24);
+}
+
+a {
+  color:rgb(159, 189, 189)
+}
+
+button {
+  background-color: rgb(68, 141, 141);
+}
