@@ -1,8 +1,15 @@
 .login-container {
   background-color: rgb(71, 70, 69);
-  padding: 10px;
+  padding: 30px;
   margin: auto;
-  border-radius: 10px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  transition: transform 0.3s;
+}
+
+.login-container:hover {
+  transform: scale(1.02);
 }
 
 form {
@@ -10,32 +17,63 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 input {
   text-align: center;
   color: black;
   margin: auto;
+  padding: 12px;
+  border: 1px solid rgb(159, 189, 189);
+  border-radius: 5px;
+  width: 100%;
+  transition: border-color 0.3s;
 }
 
- h2 {
-text-align: center;
+input:focus {
+  border-color: rgb(68, 141, 141);
+  outline: none;
+  box-shadow: 0 0 5px rgba(68, 141, 141, 0.5);
+}
+
+h2 {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  margin-bottom: 20px;
 }
 
 body {
-display: flex;
-justify-content: center;
-align-content: center;
-height: 100vh;
-
-background-color: rgb(26, 24, 24);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(26, 24, 24);
+  font-family: 'Arial', sans-serif;
 }
 
 a {
-  color:rgb(159, 189, 189)
+  color: rgb(159, 189, 189);
 }
 
 button {
   background-color: rgb(68, 141, 141);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: rgb(50, 100, 100);
+  transform: scale(1.05);
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
 }
