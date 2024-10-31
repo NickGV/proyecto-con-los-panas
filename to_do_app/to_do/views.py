@@ -12,13 +12,13 @@ class TaskListView(ListView):
 class TaskCreateView(CreateView):
     model = tasks
     template_name = 'task_form.html'
-    fields = ['title', 'description']
+    fields = ['title', 'details']
     success_url = reverse_lazy('task_list')
 
 class TaskUpdateView(UpdateView):
     model = tasks
     template_name = 'task_form.html'
-    fields = ['title', 'description']
+    fields = ['title', 'details']
     success_url = reverse_lazy('task_list')
 
 class TaskDeleteView(DeleteView):

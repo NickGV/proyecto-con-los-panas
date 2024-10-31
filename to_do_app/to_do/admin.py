@@ -1,7 +1,5 @@
 from django.contrib import admin
+from .models import tasks
 
 # Register your models here.
-from django.contrib import admin
-from .models import Dato
-
-admin.site.register(Dato)
+admin.site.register(tasks)
